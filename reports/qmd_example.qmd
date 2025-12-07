@@ -1,10 +1,18 @@
 ---
 title: "DSCI 310: Historical Horse Population in Canada"
 author: "Tiffany Timbers & Jordan Bourak"
-format: html
 editor: source
+format:
+  html:
+    toc: true
+    toc-depth: 3
+  pdf:
+    toc: true
+    toc-depth: 3
 
 bibliography: references.bib
+execute:
+  echo: false
 ---
 
 ```{python}
@@ -22,7 +30,7 @@ between 1906 and 1972 for each province.
 
 Horse population data were sourced from the 
 [Government of Canada's Open Data website](http://open.canada.ca/en/open-data) 
-([@horses1], [@horses2]).
+([@horses1; @horses2]).
 
 ## Methods
 
@@ -50,8 +58,10 @@ with the highest spread (in terms of standard deviation) of horse populations.
 We present the standard deviations in @tbl-sd.
 
 ```{python}
-#| label:tbl-sd
-#| tbl-cap:Standard deviation of historical (1906-1972) horse populations for each Canadian province.
+#| label: tbl-sd
+#| tbl-cap: Standard deviation of historical (1906-1972) horse populations for each Canadian province.
+#| echo: false
+
 horses_sd_table = pd.read_csv("../results/horses_sd.csv")
 largest_sd = horses_sd_table['Province'].values[0]
 Markdown(horses_sd_table.to_markdown(index = False))
